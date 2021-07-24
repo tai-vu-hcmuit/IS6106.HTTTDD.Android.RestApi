@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import taivu.uit.htttdd.tryrestapiwithretrofit.service.movie.MovieFetcher
+import taivu.uit.htttdd.tryrestapiwithretrofit.service.movie.MovieFetcherByCoroutine
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     fun handleClickCallAPI(view: View) {
         val txtResultView = findViewById<TextView>(R.id.result_container);
-        val movieFetcher = MovieFetcher();
+        val movieFetcher = MovieFetcherByCoroutine();
 
         txtResultView.text = getString(R.string.status_fetching);
         movieFetcher.getNowPlayingMovies();

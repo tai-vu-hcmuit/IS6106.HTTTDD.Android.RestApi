@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import taivu.uit.htttdd.tryrestapiwithretrofit.requestbuilder.RequestBuilder
 
 
-class MovieFetcher : ViewModel() {
+class MovieFetcherByCoroutine : ViewModel() {
     fun getNowPlayingMovies() {
         viewModelScope.launch {
             val requestBuilder = RequestBuilder(
