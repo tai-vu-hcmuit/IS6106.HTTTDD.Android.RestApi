@@ -17,13 +17,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/bt_fetch_movie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/callApi"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view_fetched_data"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:onClick="handleClickCallAPI"
+        />
+
+    <Button
+        android:id="@+id/view_fetched_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/viewFetchedData"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick="handleClickTest"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

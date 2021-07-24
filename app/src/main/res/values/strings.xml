@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TryRestApiWithRetrofit</string>
     <string name="callApi">Fetch movies</string>
+    <string name="viewFetchedData">View Fetched data</string>
     <string name="status_fetching">Fetching</string>
-    <string name="status_fetched">Done</string>
+    <string name="status_fetched">Fetching Done</string>
 </resources>
