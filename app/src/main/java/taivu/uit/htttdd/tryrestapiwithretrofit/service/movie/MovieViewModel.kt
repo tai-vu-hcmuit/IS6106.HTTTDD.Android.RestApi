@@ -1,6 +1,7 @@
 package taivu.uit.htttdd.tryrestapiwithretrofit.service.movie
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,7 +14,7 @@ class MovieViewModel : ViewModel() {
         private val TAG = MovieViewModel::class.java.simpleName
     }
 
-    var nowPlayingMovies: MovieResp? = null
+    var nowPlayingMovies: MutableLiveData<MovieResp> = MutableLiveData<MovieResp>();
 
     init {
         Log.e("[${TAG}]", "Init view model")
@@ -28,12 +29,14 @@ class MovieViewModel : ViewModel() {
             val movieService = requestBuilder.createRequestBuilderForApi()
                 .create(MovieDBService::class.java);
 
-            nowPlayingMovies = movieService.listNowPlayingMovies(
+            Log.e("[${TAG}]", "Fetching data");
+
+            nowPlayingMovies.value = movieService.listNowPlayingMovies(
                 language = "en-US",
                 page = 1
             )
 
-            Log.e("[Now playing]", nowPlayingMovies?.results?.get(0).toString());
+            Log.e("[${TAG}]", nowPlayingMovies.value?.results?.get(0).toString());
         };
     }
 

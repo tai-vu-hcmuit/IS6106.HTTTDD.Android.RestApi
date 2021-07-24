@@ -13,7 +13,6 @@ data class MovieResp (
 
     @SerializedName("total_results")
     val totalResults: Long? = null
-
 )
 
 data class Dates (
