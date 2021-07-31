@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import taivu.uit.htttdd.tryrestapiwithretrofit.R
 import taivu.uit.htttdd.tryrestapiwithretrofit.model.Movie
-import taivu.uit.htttdd.tryrestapiwithretrofit.service.movie.MovieDBService
 import taivu.uit.htttdd.tryrestapiwithretrofit.service.movie.MovieServiceConfig
 
 class MovieListAdapter (private var movieList: List<Movie>) : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
@@ -36,7 +36,10 @@ class MovieListAdapter (private var movieList: List<Movie>) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.imgThumbnail.setImageURI(MovieServiceConfig.BASE_RESOURCE_URL + movieList[position].backdropPath)
+        val imageUrl: String = MovieServiceConfig.BASE_RESOURCE_URL + movieList[position].posterPath;
+        val picasso = Picasso.get();
+        picasso.load(imageUrl).into(holder.imgThumbnail);
+
         holder.txTitle.text = movieList[position].title
         holder.txtReleaseDate.text = movieList[position].releaseDate
         holder.txtVoteAverage.text = movieList[position].voteAverage.toString()
